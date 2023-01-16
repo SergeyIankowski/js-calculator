@@ -1,0 +1,23 @@
+.buttons-container__layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  align-content: stretch;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+}
+.calculator__button_wide {
+  grid-column: span 2;
+}
+.calculator__button {
+  font: normal bold 20px/120% 'Roboto', sans-serif;
+  border: 0;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calculator__button_colored {
+  background-color: orange;
+}
