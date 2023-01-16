@@ -10,6 +10,7 @@ const stylesHandler = isProduction
   : 'style-loader';
 
 const config = {
+  devtool: 'source-map',
   entry: './src/index.js',
   output: {
     filename: 'index.js',
