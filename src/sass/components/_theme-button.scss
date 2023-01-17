@@ -2,6 +2,11 @@
   font: normal bold 15px/110% 'Roboto', sans-serif;
   padding: 5px;
   border-radius: 10px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .theme-button_theme-1 {
   background-color: $calculator-color-theme-1;
