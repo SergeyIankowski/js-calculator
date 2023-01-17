@@ -1,6 +1,19 @@
 export default function renderCalculator(arr) {
   const calculator = document.createElement('section');
-  calculator.classList.add('calculator', 'calculator-layout');
+  calculator.classList.add('calculator', 'calculator-layout', 'calculator_theme-1');
+
+  const themes = document.createElement('div');
+  themes.classList.add('themes-container', 'themes-layout');
+
+  ['theme-1', 'theme-2', 'theme-3', 'theme-4'].forEach((item) => {
+    const themeButton = document.createElement('buttom');
+    themeButton.classList.add('themes-container__item', 'theme-button', `theme-button_${item}`);
+    themeButton.onclick = () => {
+      calculator.className = `calculator calculator-layout calculator_${item}`;
+    };
+    themeButton.innerText = String(item);
+    themes.append(themeButton);
+  });
 
   const calculatorBoard = document.createElement('input');
   calculatorBoard.type = 'text';
@@ -30,6 +43,6 @@ export default function renderCalculator(arr) {
     calculatorButtons.append(buttonNode);
   });
 
-  calculator.append(calculatorBoard, calculatorButtons);
+  calculator.append(themes, calculatorBoard, calculatorButtons);
   return calculator;
 }

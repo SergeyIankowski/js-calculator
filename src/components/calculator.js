@@ -199,6 +199,7 @@ class Calculator {
       e.target.setSelectionRange(end, end);
     });
 
+    // render in an outer container
     targetNode.append(calculatorNode);
     this.rerenderBoard();
   }

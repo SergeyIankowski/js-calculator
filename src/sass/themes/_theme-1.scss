@@ -1,0 +1,15 @@
+.calculator_theme-1 {
+  background-color: $calculator-color-theme-1;
+.calculator__board {
+background-color: $board-color-theme-1;
+}
+.calculator__buttons {
+
+  .calculator__button {
+    background-color: $numbers-color-theme-1;
+  }
+  .calculator__button_colored {
+    background-color: $characters-color-theme-1
+  }
+}
+}

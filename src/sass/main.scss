@@ -3,5 +3,11 @@
 @import './base/global';
 @import './layout/wrapper';
 @import './layout/calculator-layout';
+@import './layout/themes-layout';
 @import './layout/buttons-container-layout';
 @import './components/calculator';
+@import './components/theme-button';
+@import './themes/theme-1';
+@import './themes/theme-2';
+@import './themes/theme-3';
+@import './themes/theme-4';
