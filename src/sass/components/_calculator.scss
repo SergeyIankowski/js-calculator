@@ -11,12 +11,14 @@
   text-align: right;
 }
 .calculator__button {
-  font: normal bold 20px/120% 'Roboto', sans-serif;
-  border: 0;
-  background-color: grey;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font: normal bold 20px/120% 'Roboto', sans-serif;
+  border: 0;
+  background-color: grey;
+  cursor: pointer;
 }
 .calculator__button_colored {
   background-color: orange;
@@ -32,7 +34,6 @@
     font: normal bold 50px/120% 'Roboto', sans-serif;
   }
   .calculator__button {
-    font: normal bold 30px/120% 'Roboto', sans-serif;
-
+    font: normal bold 37px/120% 'Roboto', sans-serif;
   }
 }
