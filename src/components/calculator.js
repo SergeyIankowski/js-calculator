@@ -34,7 +34,7 @@ class Calculator {
         },
       },
       {
-        btnName: '🡸',
+        btnName: '<=',
         callback: () => {
           this.setValue('<');
         },
