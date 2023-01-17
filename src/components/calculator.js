@@ -34,7 +34,7 @@ class Calculator {
         },
       },
       {
-        btnName: '<=',
+        btnName: '🡸',
         callback: () => {
           this.setValue('<');
         },
@@ -153,7 +153,10 @@ class Calculator {
           if (newArr[0] === 'Infinity' || newArr[0] === '-Infinity') {
             this.board = ['not divide by zero'];
             this.rerenderBoard();
-            setTimeout(() => { this.board = []; this.rerenderBoard(); }, 1000);
+            setTimeout(() => {
+              this.board = [];
+              this.rerenderBoard();
+            }, 1000);
             return;
           }
           this.board = newArr;
@@ -168,13 +171,11 @@ class Calculator {
 
     this.boardInput.addEventListener('input', (e) => {
       const tapedValue = e.target.value.slice(-1);
-      console.log(tapedValue);
       this.setValue(tapedValue);
       e.target.focus();
     });
 
     this.boardInput.addEventListener('keydown', (e) => {
-      console.log('key', e.key);
       if (e.key === 'Enter') {
         const newArr = calculateArrOfStringValues(this.board);
         this.board = newArr;

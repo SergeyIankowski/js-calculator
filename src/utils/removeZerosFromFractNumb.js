@@ -8,7 +8,6 @@ export default function removeZerosFromFractionNumberStr(num) {
   if (arr[0].includes('Infinity')) {
     return 'Infinity';
   }
-  console.log(arr);
 
   const newArr = arr[1].includes('0') ? [arr[0], arr[1].replaceAll('0', '')] : arr;
   return newArr.join('.');
