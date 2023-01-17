@@ -1,4 +1,4 @@
-export default function renderCalculator(arr, targetNode) {
+export default function renderCalculator(arr) {
   const calculator = document.createElement('section');
   calculator.classList.add('calculator', 'calculator-layout');
 
@@ -21,6 +21,9 @@ export default function renderCalculator(arr, targetNode) {
     if (+buttonKey === 0) {
       buttonNode.classList.add('calculator__button_wide');
     }
+    if (buttonKey === '=') {
+      buttonNode.classList.add('calculator__button_extra-wide');
+    }
 
     buttonNode.innerText = `${buttonKey}`;
     buttonNode.onclick = buttonCallback;
@@ -28,5 +31,5 @@ export default function renderCalculator(arr, targetNode) {
   });
 
   calculator.append(calculatorBoard, calculatorButtons);
-  targetNode.append(calculator);
+  return calculator;
 }

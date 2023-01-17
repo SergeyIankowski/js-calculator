@@ -1,4 +1,6 @@
 import calculateBySigns from './calculateBySigns';
+import removeZerosFromFractionNumberStr from './removeZerosFromFractNumb';
+import saveResultsToLocalStorage from './saveResultsToLocalStorage';
 
 export default function calculateArrOfStringValues(arr) {
   const arrayForManipulations = [...arr];
@@ -10,5 +12,12 @@ export default function calculateArrOfStringValues(arr) {
   resultArr = calculateBySigns(resultArr, firstPriorActions);
   resultArr = calculateBySigns(resultArr, secondPriorActions);
 
-  return resultArr[0] % 1 === 0 ? [resultArr.toString()] : [resultArr[0].toFixed(6)];
+  const result = Number.isInteger(resultArr[0])
+    ? [resultArr.toString()]
+    : [removeZerosFromFractionNumberStr(resultArr[0])];
+
+  // set results to local Storage
+  saveResultsToLocalStorage(arrayForManipulations, result);
+
+  return result;
 }

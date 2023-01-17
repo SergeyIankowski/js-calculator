@@ -10,11 +10,12 @@ export default function calculateBySigns(arr, signsArr) {
     const numberBefore = parseFloat(resultArr[index - 1]);
     const numberAfter = parseFloat(resultArr[index + 1]);
 
-    if (!numberAfter) {
+    if (numberAfter === undefined) {
       resultArr = [...arrBefore, numberBefore];
       return;
     }
     resultArr = [...arrBefore, mathItUp[item](numberBefore, numberAfter), ...arrAfter];
   });
+
   return resultArr;
 }

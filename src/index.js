@@ -1,11 +1,8 @@
-import calculateArrOfStringValues from './utils/calculate-arr-of-string-values';
+import './sass/main.scss';
+import Calculator from './components/calculator';
 
-console.log('Hello World!');
+const initialValueStr = window.localStorage.getItem('result');
+const initialValue = initialValueStr ? JSON.parse(window.localStorage.getItem('result')) : [];
+const calculator = new Calculator(initialValue);
 
-// const arr = ['35', '+', '1', '*', '-17.1', '+', '1', '*', '3', '/', '8', '+', '2'];
-console.log(calculateArrOfStringValues('1 + 2 + 3 * -2 - 125.7654 + 126.121212'.split(' ')));
-console.log(
-  calculateArrOfStringValues(
-    `${calculateArrOfStringValues('1 + 2 + 3 * -2 - 125 + 126 * 3 + 8588 / 75'.split(' ')).toString()} + 236`.split(' ')
-  )
-);
+calculator.init(document.body);
