@@ -54,6 +54,15 @@ class Calculator {
         btnName: '%',
         callback: () => {
           this.setValue('%');
+          const newArr = this.board;
+          if (newArr[0] === 'Error') {
+            this.board = ['very small percent value'];
+            this.rerenderBoard();
+            setTimeout(() => {
+              this.board = [];
+              this.rerenderBoard();
+            }, 1000);
+          }
         },
       },
       {
@@ -167,8 +176,8 @@ class Calculator {
 
     const calculatorNode = renderCalculator(buttonsData);
 
+    // adding events to input
     this.boardInput = calculatorNode.querySelector('.calculator__board');
-
     this.boardInput.addEventListener('input', (e) => {
       const tapedValue = e.target.value.slice(-1);
       this.setValue(tapedValue);

@@ -1,4 +1,13 @@
+import removeZerosFromFractionNumberStr from './removeZerosFromFractNumb';
+
 export default function checkEnteredChar(char, boardArr, input, rerenderCallback) {
+  // if char isn't operator or digit
+  if (!'*/+-%<.'.includes(char) && Number.isNaN(+char)) {
+    const inputNode = input;
+    inputNode.value = inputNode.value.slice(0, -1);
+    return;
+  }
+
   // if dot is clicked
   if ('.'.includes(char) && !Number.isNaN(+boardArr.at(-1)) && !boardArr.at(-1).includes('.')) {
     const value = +boardArr.pop();
@@ -10,6 +19,12 @@ export default function checkEnteredChar(char, boardArr, input, rerenderCallback
   if ('%'.includes(char) && !Number.isNaN(+boardArr.at(-1))) {
     let value = +boardArr.pop();
     value /= 100;
+    value = removeZerosFromFractionNumberStr(value);
+    if (+value < 0.000001) {
+      boardArr.push('Error');
+      rerenderCallback();
+      return;
+    }
     boardArr.push(String(value));
     rerenderCallback();
     return;
@@ -28,13 +43,6 @@ export default function checkEnteredChar(char, boardArr, input, rerenderCallback
     value = value.slice(0, -1);
     boardArr.push(value);
     rerenderCallback();
-    return;
-  }
-
-  // if char isn't operator or digit
-  if (!'*/+-'.includes(char) && Number.isNaN(+char)) {
-    const inputNode = input;
-    inputNode.value = inputNode.value.slice(0, -1);
     return;
   }
 
