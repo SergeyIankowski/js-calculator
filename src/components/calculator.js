@@ -191,12 +191,15 @@ class Calculator {
     this.boardInput.addEventListener('input', (e) => {
       const tapedValue = e.target.value.slice(-1);
       this.setValue(tapedValue);
-      e.target.focus();
     });
 
     this.boardInput.addEventListener('keydown', (e) => {
       if (e.code === 'Backspace') {
         e.preventDefault();
+      }
+      if (e.code === 'Space') {
+        e.preventDefault();
+        return;
       }
       if (e.key === 'Enter') {
         const newArr = calculateArrOfStringValues(this.board);
