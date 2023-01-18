@@ -203,6 +203,17 @@ class Calculator {
       }
       if (e.key === 'Enter') {
         const newArr = calculateArrOfStringValues(this.board);
+
+        if (newArr[0] === 'Infinity' || newArr[0] === '-Infinity') {
+          this.board = ['not divide by zero'];
+          this.rerenderBoard();
+          setTimeout(() => {
+            this.board = [];
+            this.rerenderBoard();
+          }, 1000);
+          return;
+        }
+
         this.board = newArr;
         this.rerenderBoard();
         rerenderResultsBoard(this.resultsBoard);
