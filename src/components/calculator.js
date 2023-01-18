@@ -216,6 +216,7 @@ class Calculator {
       e.target.setSelectionRange(end, end);
     });
 
+    // render results board
     const results = window.localStorage.getItem('lastTenResults');
     const resultsArr = results ? JSON.parse(results) : [];
 
