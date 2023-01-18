@@ -1,3 +1,1 @@
-export default function renderSidebar() {
-
-}
+export default function renderSidebar() {}

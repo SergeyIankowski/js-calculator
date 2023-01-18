@@ -1,11 +1,15 @@
 import calculateArrOfStringValues from '../utils/calculate-arr-of-string-values';
 import checkEnteredChar from '../utils/checkEnteredChar';
+import isLastCharDot from '../utils/isLastCharDot';
+import rerenderResultsBoard from '../utils/rerenderResultsBoard';
 import renderCalculator from './renderCalculator';
+import { renderLastTenResultsBoard } from './renderLastResutsBoard';
 
 class Calculator {
   constructor(board) {
     this.board = board;
     this.boardInput = null;
+    this.resultsBoard = null;
   }
 
   setResult(arr) {
@@ -31,6 +35,8 @@ class Calculator {
           this.board = [];
           this.boardInput.value = '';
           window.localStorage.setItem('result', '');
+          window.localStorage.setItem('lastTenResults', JSON.stringify([]));
+          rerenderResultsBoard(this.resultsBoard);
         },
       },
       {
@@ -56,7 +62,7 @@ class Calculator {
           this.setValue('%');
           const newArr = this.board;
           if (newArr[0] === 'Error') {
-            this.board = ['very small percent value'];
+            this.board = ['very small percent'];
             this.rerenderBoard();
             setTimeout(() => {
               this.board = [];
@@ -159,6 +165,7 @@ class Calculator {
         btnName: '=',
         callback: () => {
           const newArr = calculateArrOfStringValues(this.board);
+
           if (newArr[0] === 'Infinity' || newArr[0] === '-Infinity') {
             this.board = ['not divide by zero'];
             this.rerenderBoard();
@@ -168,8 +175,11 @@ class Calculator {
             }, 1000);
             return;
           }
-          this.board = newArr;
+
+          this.board = isLastCharDot(newArr);
           this.rerenderBoard();
+
+          rerenderResultsBoard(this.resultsBoard);
         },
       },
     ];
@@ -189,6 +199,7 @@ class Calculator {
         const newArr = calculateArrOfStringValues(this.board);
         this.board = newArr;
         this.rerenderBoard();
+        rerenderResultsBoard(this.resultsBoard);
       }
       if (e.key === 'Delete') {
         this.setValue('<');
@@ -199,8 +210,13 @@ class Calculator {
       e.target.setSelectionRange(end, end);
     });
 
+    const results = window.localStorage.getItem('lastTenResults');
+    const resultsArr = results ? JSON.parse(results) : [];
+
+    this.resultsBoard = renderLastTenResultsBoard(resultsArr);
+
     // render in an outer container
-    targetNode.append(calculatorNode);
+    targetNode.append(calculatorNode, this.resultsBoard);
     this.rerenderBoard();
   }
 }

@@ -1,16 +1,15 @@
-.calculator_theme-3{
+.calculator_theme-3 {
   background-color: $calculator-color-theme-3;
-.calculator__board {
-background-color: $board-color-theme-3;
-}
-.calculator__buttons {
-
-  .calculator__button {
-    background-color: $numbers-color-theme-3;
+  .calculator__board {
+    background-color: $board-color-theme-3;
   }
-  .calculator__button_colored {
-    background-color: $characters-color-theme-3;
-    color: white;
+  .calculator__buttons {
+    .calculator__button {
+      background-color: $numbers-color-theme-3;
+    }
+    .calculator__button_colored {
+      background-color: $characters-color-theme-3;
+      color: white;
+    }
   }
-}
 }

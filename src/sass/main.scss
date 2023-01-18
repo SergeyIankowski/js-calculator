@@ -1,12 +1,18 @@
-@import './base/reset';
 @import './abstract/variables';
+
+@import './base/reset';
 @import './base/global';
+
 @import './layout/wrapper';
-@import './layout/calculator-layout';
 @import './layout/themes-layout';
+@import './layout/calculator-layout';
 @import './layout/buttons-container-layout';
+@import './layout/results-board-layout';
+
 @import './components/calculator';
+@import './components/results-board';
 @import './components/theme-button';
+
 @import './themes/theme-1';
 @import './themes/theme-2';
 @import './themes/theme-3';

@@ -1,6 +1,7 @@
 export default function renderCalculator(arr) {
   const calculator = document.createElement('section');
-  calculator.classList.add('calculator', 'calculator-layout', 'calculator_theme-1');
+  const calculatorTheme = localStorage.getItem('theme') || 'theme-1';
+  calculator.classList.add('calculator', 'calculator-layout', `calculator_${calculatorTheme}`);
 
   const themes = document.createElement('div');
   themes.classList.add('themes-container', 'themes-layout');
@@ -10,6 +11,7 @@ export default function renderCalculator(arr) {
     themeButton.classList.add('themes-container__item', 'theme-button', `theme-button_${item}`);
     themeButton.onclick = () => {
       calculator.className = `calculator calculator-layout calculator_${item}`;
+      localStorage.setItem('theme', item);
     };
     themeButton.innerText = `${item.slice(0, 5)} ${item.at(-1)}`;
     themes.append(themeButton);
