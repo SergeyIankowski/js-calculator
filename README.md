@@ -20,3 +20,4 @@ js-calculator (root of project)
   + Pressing is validated when entering an expression from the keyboard.
   + When page is reloaded, last value and last 10 previous expressions will saved
   + By clicking 'AC' removed current value in input and cleared last 10 previous expression board.
+  + Changing the theme when you click on the theme buttons at the top.

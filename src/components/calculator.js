@@ -195,13 +195,16 @@ class Calculator {
     });
 
     this.boardInput.addEventListener('keydown', (e) => {
+      if (e.code === 'Backspace') {
+        e.preventDefault();
+      }
       if (e.key === 'Enter') {
         const newArr = calculateArrOfStringValues(this.board);
         this.board = newArr;
         this.rerenderBoard();
         rerenderResultsBoard(this.resultsBoard);
       }
-      if (e.key === 'Delete') {
+      if (e.key === 'Delete' || e.code === 'Backspace') {
         this.setValue('<');
       }
     });
