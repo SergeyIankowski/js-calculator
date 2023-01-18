@@ -1,6 +1,6 @@
 # JS-calculator
 
-Deploy: [Calculator](https://funny-narwhal-8a673a.netlify.app/)
+## Deploy: [Calculator](https://funny-narwhal-8a673a.netlify.app/)
 
 This is simple Vanilla JS Calculator with **validation** and saving results to **localStorage**. You can write your math expression with Ui and also with keyboard.
 
