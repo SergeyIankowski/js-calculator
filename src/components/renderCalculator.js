@@ -11,7 +11,7 @@ export default function renderCalculator(arr) {
     themeButton.onclick = () => {
       calculator.className = `calculator calculator-layout calculator_${item}`;
     };
-    themeButton.innerText = String(item);
+    themeButton.innerText = `${item.slice(0, 5)} ${item.at(-1)}`;
     themes.append(themeButton);
   });
 

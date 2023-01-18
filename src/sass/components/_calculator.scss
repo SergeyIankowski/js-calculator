@@ -18,6 +18,13 @@
   font: normal bold 20px/120% 'Roboto', sans-serif;
   border: 0;
   cursor: pointer;
+
+  &:hover {
+    filter: invert(0.25);
+  }
+  &:active {
+    filter: opacity(0.5);
+  }
 }
 
 @media (max-width: 700px) {
@@ -33,3 +40,10 @@
     font: normal bold 37px/120% 'Roboto', sans-serif;
   }
 }
+
+@media (max-width: 420px) {
+  .calculator__button {
+    font: normal bold 20px/120% 'Roboto', sans-serif;
+  }
+}
+
