@@ -1,5 +1,5 @@
 import {
-  allChars, back, divider, dot, equal, minus, multiply, percent, plus,
+  allChars, back, divide, dot, equal, minus, multiply, percent, plus,
 } from '../charactersData';
 import removeZerosFromFractionNumberStr from './removeZerosFromFractNumb';
 
@@ -50,21 +50,21 @@ export default function checkEnteredChar(char, boardArr, input, rerenderCallback
   }
 
   // add first char to array
-  if (boardArr.length === 0 && ![multiply, divider, plus, minus, equal].includes(char)) {
+  if (boardArr.length === 0 && ![multiply, divide, plus, minus, equal].includes(char)) {
     boardArr.push(char);
     rerenderCallback();
     return;
   }
 
   // add operator after number
-  if (!Number.isNaN(+boardArr.at(-1)) && [multiply, divider, plus, minus, equal].includes(char)) {
+  if (!Number.isNaN(+boardArr.at(-1)) && [multiply, divide, plus, minus, equal].includes(char)) {
     boardArr.push(char);
     rerenderCallback();
     return;
   }
 
   // add new number after operator
-  if ([multiply, divider, plus, minus, equal].includes(boardArr.at(-1)) && !Number.isNaN(+char)) {
+  if ([multiply, divide, plus, minus, equal].includes(boardArr.at(-1)) && !Number.isNaN(+char)) {
     boardArr.push(char);
     rerenderCallback();
     return;
@@ -72,8 +72,8 @@ export default function checkEnteredChar(char, boardArr, input, rerenderCallback
 
   // change operator
   if (
-    [multiply, divider, plus, minus, equal].includes(boardArr.at(-1))
-    && [multiply, divider, plus, minus, equal].includes(char)
+    [multiply, divide, plus, minus, equal].includes(boardArr.at(-1))
+    && [multiply, divide, plus, minus, equal].includes(char)
   ) {
     boardArr.pop();
     boardArr.push(char);

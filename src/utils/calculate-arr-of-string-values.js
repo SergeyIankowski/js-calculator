@@ -1,5 +1,5 @@
 import {
-  divider, minus, multiply, plus,
+  divide, minus, multiply, plus,
 } from '../charactersData';
 import calculateBySigns from './calculateBySigns';
 import removeZerosFromFractionNumberStr from './removeZerosFromFractNumb';
@@ -8,7 +8,7 @@ import saveResultsToLocalStorage from './saveResultsToLocalStorage';
 export default function calculateArrOfStringValues(arr) {
   const arrayForManipulations = [...arr];
   const firstPriorActions = arrayForManipulations.filter(
-    (item) => item === multiply || item === divider,
+    (item) => item === multiply || item === divide,
   );
   const secondPriorActions = arrayForManipulations.filter(
     (item) => item === plus || item === minus,
