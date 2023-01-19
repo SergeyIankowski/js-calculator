@@ -1,22 +1,25 @@
+import {
+  allChars, back, devider, dot, equal, minus, multiply, percent, plus,
+} from '../charactersData';
 import removeZerosFromFractionNumberStr from './removeZerosFromFractNumb';
 
 export default function checkEnteredChar(char, boardArr, input, rerenderCallback) {
   // if char isn't operator or digit
-  if (!'*/+-%<.'.includes(char) && Number.isNaN(+char)) {
+  if (!allChars.includes(char) && Number.isNaN(+char)) {
     const inputNode = input;
     inputNode.value = inputNode.value.slice(0, -1);
     return;
   }
 
   // if dot is clicked
-  if ('.'.includes(char) && !Number.isNaN(+boardArr.at(-1)) && !boardArr.at(-1).includes('.')) {
+  if (dot.includes(char) && !Number.isNaN(+boardArr.at(-1)) && !boardArr.at(-1).includes('.')) {
     const value = +boardArr.pop();
     boardArr.push(`${value}.`);
     rerenderCallback();
   }
 
   // if clicked on percent
-  if ('%'.includes(char) && !Number.isNaN(+boardArr.at(-1))) {
+  if (percent.includes(char) && !Number.isNaN(+boardArr.at(-1))) {
     let value = +boardArr.pop();
     value /= 100;
     value = removeZerosFromFractionNumberStr(value);
@@ -31,7 +34,7 @@ export default function checkEnteredChar(char, boardArr, input, rerenderCallback
   }
 
   // if clicked delete char button
-  if ('<'.includes(char)) {
+  if (back.includes(char)) {
     if (boardArr.length === 0) {
       return;
     }
@@ -47,28 +50,31 @@ export default function checkEnteredChar(char, boardArr, input, rerenderCallback
   }
 
   // add first char to array
-  if (boardArr.length === 0 && !'*/+-='.includes(char)) {
+  if (boardArr.length === 0 && ![multiply, devider, plus, minus, equal].includes(char)) {
     boardArr.push(char);
     rerenderCallback();
     return;
   }
 
   // add operator after number
-  if (!Number.isNaN(+boardArr.at(-1)) && '*/+-='.includes(char)) {
+  if (!Number.isNaN(+boardArr.at(-1)) && [multiply, devider, plus, minus, equal].includes(char)) {
     boardArr.push(char);
     rerenderCallback();
     return;
   }
 
   // add new number after operator
-  if ('*/+-='.includes(boardArr.at(-1)) && !Number.isNaN(+char)) {
+  if ([multiply, devider, plus, minus, equal].includes(boardArr.at(-1)) && !Number.isNaN(+char)) {
     boardArr.push(char);
     rerenderCallback();
     return;
   }
 
   // change operator
-  if ('*/+-='.includes(boardArr.at(-1)) && '*/+-='.includes(char)) {
+  if (
+    [multiply, devider, plus, minus, equal].includes(boardArr.at(-1))
+    && [multiply, devider, plus, minus, equal].includes(char)
+  ) {
     boardArr.pop();
     boardArr.push(char);
     rerenderCallback();
