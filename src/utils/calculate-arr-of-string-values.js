@@ -1,11 +1,18 @@
+import {
+  devider, minus, multiply, plus,
+} from '../charactersData';
 import calculateBySigns from './calculateBySigns';
 import removeZerosFromFractionNumberStr from './removeZerosFromFractNumb';
 import saveResultsToLocalStorage from './saveResultsToLocalStorage';
 
 export default function calculateArrOfStringValues(arr) {
   const arrayForManipulations = [...arr];
-  const firstPriorActions = arrayForManipulations.filter((item) => item === '*' || item === '/');
-  const secondPriorActions = arrayForManipulations.filter((item) => item === '+' || item === '-');
+  const firstPriorActions = arrayForManipulations.filter(
+    (item) => item === multiply || item === devider,
+  );
+  const secondPriorActions = arrayForManipulations.filter(
+    (item) => item === plus || item === minus,
+  );
 
   let resultArr = [...arrayForManipulations];
 

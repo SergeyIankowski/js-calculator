@@ -1,3 +1,5 @@
+import { dot } from '../charactersData';
+
 export default function renderCalculator(arr) {
   const calculator = document.createElement('section');
   const calculatorTheme = localStorage.getItem('theme') || 'theme-1';
@@ -28,7 +30,7 @@ export default function renderCalculator(arr) {
     const buttonNode = document.createElement('div');
     const [buttonKey, buttonCallback] = [button.btnName, button.callback];
 
-    if (!Number.isNaN(+buttonKey) || buttonKey === '.') {
+    if (!Number.isNaN(+buttonKey) || buttonKey === dot) {
       buttonNode.classList.add('calculator__button');
     } else {
       buttonNode.classList.add('calculator__button', 'calculator__button_colored');

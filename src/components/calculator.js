@@ -1,3 +1,6 @@
+import {
+  back, devider, dot, minus, multiply, percent, plus,
+} from '../charactersData';
 import calculateArrOfStringValues from '../utils/calculate-arr-of-string-values';
 import checkEnteredChar from '../utils/checkEnteredChar';
 import isLastCharDot from '../utils/isLastCharDot';
@@ -42,7 +45,7 @@ class Calculator {
       {
         btnName: '<=',
         callback: () => {
-          this.setValue('<');
+          this.setValue(back);
         },
       },
       {
@@ -59,7 +62,7 @@ class Calculator {
       {
         btnName: '%',
         callback: () => {
-          this.setValue('%');
+          this.setValue(percent);
           const newArr = this.board;
           if (newArr[0] === 'Error') {
             this.board = ['very small percent'];
@@ -74,7 +77,7 @@ class Calculator {
       {
         btnName: '/',
         callback: () => {
-          this.setValue('/');
+          this.setValue(devider);
         },
       },
       {
@@ -98,7 +101,7 @@ class Calculator {
       {
         btnName: '*',
         callback: () => {
-          this.setValue('*');
+          this.setValue(multiply);
         },
       },
       {
@@ -122,7 +125,7 @@ class Calculator {
       {
         btnName: '-',
         callback: () => {
-          this.setValue('-');
+          this.setValue(minus);
         },
       },
       {
@@ -146,7 +149,7 @@ class Calculator {
       {
         btnName: '+',
         callback: () => {
-          this.setValue('+');
+          this.setValue(plus);
         },
       },
       {
@@ -158,7 +161,7 @@ class Calculator {
       {
         btnName: '.',
         callback: () => {
-          this.setValue('.');
+          this.setValue(dot);
         },
       },
       {
@@ -215,11 +218,12 @@ class Calculator {
         }
 
         this.board = newArr;
+        isLastCharDot(newArr);
         this.rerenderBoard();
         rerenderResultsBoard(this.resultsBoard);
       }
       if (e.key === 'Delete' || e.code === 'Backspace') {
-        this.setValue('<');
+        this.setValue(back);
       }
     });
     this.boardInput.addEventListener('click', (e) => {
