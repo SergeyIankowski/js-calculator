@@ -9,5 +9,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  plugins: ['import', 'prettier'],
   rules: {},
 };

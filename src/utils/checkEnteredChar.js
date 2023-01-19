@@ -1,5 +1,13 @@
 import {
-  allChars, back, divide, dot, equal, minus, multiply, percent, plus,
+  allChars,
+  back,
+  divide,
+  dot,
+  equal,
+  minus,
+  multiply,
+  percent,
+  plus,
 } from '../charactersData';
 import removeZerosFromFractionNumberStr from './removeZerosFromFractNumb';
 
