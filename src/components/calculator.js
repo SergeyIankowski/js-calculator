@@ -1,5 +1,5 @@
 import {
-  back, devider, dot, minus, multiply, percent, plus,
+  back, divider, dot, minus, multiply, percent, plus,
 } from '../charactersData';
 import calculateArrOfStringValues from '../utils/calculate-arr-of-string-values';
 import checkEnteredChar from '../utils/checkEnteredChar';
@@ -77,7 +77,7 @@ class Calculator {
       {
         btnName: '/',
         callback: () => {
-          this.setValue(devider);
+          this.setValue(divider);
         },
       },
       {

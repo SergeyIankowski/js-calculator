@@ -5,7 +5,7 @@ export default function saveResultsToLocalStorage(arr, result) {
   window.localStorage.setItem('result', JSON.stringify(result));
   const resultsArrStr = window.localStorage.getItem('lastTenResults');
   const resultsArr = JSON.parse(resultsArrStr) || [];
-  if (resultsArr.length > 10) {
+  if (resultsArr.length > 9) {
     resultsArr.pop();
   }
   resultsArr.unshift({ result, field: arr.join(' ') });
