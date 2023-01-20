@@ -12,6 +12,7 @@ Simple Vanilla JS Calculator with **validation** and **saving results** to **loc
 js-calculator (root of project)
   └───src (folder with source code files)
       |─── components (Render functions to create html nodes and classes with logic when are rendered. Files with .js ext)
+      |
       |─── scss (All styles with. Files .scss ext)
       |─── utils (Support functions placed in separate files. Files with.js ext)
       |─── index.html
